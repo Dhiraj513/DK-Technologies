@@ -14,7 +14,7 @@ const App = () => {
       text:"rgb(24, 24, 29)",
       white:"#fff",
       black:"#212529",
-      helper:"#8490ff"
+      helper:"#8490ff",
       bg:"rgb(249, 249, 255)",
       footer_bg:"#0a1435",
       btn:"rgb(98 84 243)",
