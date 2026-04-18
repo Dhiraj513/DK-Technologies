@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from './Button';
-const HeroSection = () => {
+import { AppContext, useGlobalContext } from '../context';
+const HeroSection = ({ name, Image }) => {
+    const firstName = useGlobalContext();
   return <Wrapper>
     <div className="container grid grid-two-column">
       <div className="section-hero-data">
       <p className='hero-top-data'>THIS IS ME</p>
-      <h1 className='hero-heading'>DHIRAJ KUSHWAHA</h1>
+      <h1 className='hero-heading'>{name}</h1>
       <p className='hero-para'>
-        A passionate student exploring the intersection of
+        I am {firstName}.A passionate student exploring the intersection of
          technology, design, and human experience.
          Building meaningful things one line of code at a time.
       
@@ -22,7 +24,7 @@ const HeroSection = () => {
       </div>
       <div className="section-hero-image">
       <picture>
-        <img src="/hero.svg"  alt="hero image" className='hero-img' />
+        <img src={Image}  alt="hero image" className='hero-img' />
       </picture>
       </div>
     </div>  
@@ -30,53 +32,128 @@ const HeroSection = () => {
   </Wrapper>
 };
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f5f7ff 0%,
+    #eef1ff 100%
+  );
 
+  display: flex;
+  align-items: center;
+
+  .container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  .grid {
+    display: grid;
+    gap: 6rem;
+  }
+
+  .grid-two-column {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  /* LEFT SIDE */
   .section-hero-data {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .btn {
-    max-width: 16rem;
+    animation: fadeInLeft 1s ease;
   }
 
   .hero-top-data {
     text-transform: uppercase;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
     color: ${({ theme }) => theme.colors.helper};
+    margin-bottom: 0rem;
   }
 
   .hero-heading {
-    text-transform: uppercase;
-    font-size: 6.4rem;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: ${({ theme }) => theme.colors.heading};
   }
 
   .hero-para {
-    margin-top: 1.5rem;
-    margin-bottom: 3.4rem;
-    max-width: 60rem;
+    margin: 2rem 0;
+    max-width: 45rem;
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.colors.text};
   }
 
+  .btn {
+    width: 18rem;
+    padding: 1.2rem 2rem;
+    border-radius: 8px;
+    background: ${({ theme }) => theme.colors.helper};
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  /* RIGHT SIDE */
   .section-hero-image {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  picture {
-    text-align: center;
+    animation: fadeInRight 1s ease;
   }
 
   .hero-img {
-    max-width: 80%;
+    width: 85%;
+    max-width: 42rem;
+    transition: transform 0.4s ease;
   }
 
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    .grid {
-      gap: 7.2rem;
+  .hero-img:hover {
+    transform: scale(1.05);
+  }
+
+  /* ✨ Animations */
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* 📱 Responsive */
+  @media (max-width: 768px) {
+    .grid-two-column {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-img {
+      width: 65%;
+      margin-top: 3rem;
     }
   }
 `;
