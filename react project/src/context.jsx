@@ -1,13 +1,12 @@
 import React, { useContext, useReducer } from 'react';
 import { reducer } from './reducer';
+
 const AppContext = React.createContext();
 
 const initialState = {
   name: "",
-  Image: "",
+  Image: null,
 };
-
-
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -26,8 +25,8 @@ const AppProvider = ({ children }) => {
     dispatch({
       type: "UPDATE_ABOUTPAGE",
       payload: {
-        name: "ABOUT US",
-        Image: "/about.svg",
+        name: "DHIRAJ KUSHWAHA",
+        Image: "/about1.svg",
       },
     });
   };

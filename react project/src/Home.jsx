@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
-import HeroSection from './components/HeroSection';
-import { useGlobalContext } from './context';
+import React, { useEffect } from "react";
+import HeroSection from "./components/HeroSection";
+import { useGlobalContext } from "./context";
 
 const Home = () => {
-  /*const data = {
-    name: "DK TECHNOLOGIES",
-    Image: "/hero.svg",
-  }; */
-  const {updateHomepage} = useGlobalContext();
-  useEffect(() => 
-    updateHomepage(),[] );
+  const { name, Image, updateHomepage } = useGlobalContext();
+
+  useEffect(() => {
+    updateHomepage();
+  }, []);
+
   return (
-  <> <HeroSection  />
-  </>)
+    <>
+      <HeroSection name={name} Image={Image} />
+    </>
+  );
 };
 
 export default Home;
