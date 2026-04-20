@@ -1,8 +1,12 @@
 import React, { useContext, useReducer } from 'react';
 import { reducer } from './reducer';
+import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
+
 
 const AppContext = React.createContext();
 
+const API =
 const initialState = {
   name: "",
   Image: null,
@@ -30,6 +34,28 @@ const AppProvider = ({ children }) => {
       },
     });
   };
+  // GET API DATA
+    const getServices = async (url) => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+        dispatch({
+          type: "GET_SERVICES",
+          payload: data})
+        }
+      
+       catch (error) {
+      console.log(error);
+    }
+};
+
+  //call the api
+ useLayoutEffect(() => {
+   getServices(API);
+ 
+
+ }, []);
+  
 
   return (
     <AppContext.Provider value={{ ...state, updateHomepage, updateAboutpage }}>
