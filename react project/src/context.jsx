@@ -1,15 +1,15 @@
 import React, { useContext, useReducer } from 'react';
 import { reducer } from './reducer';
-import { useLayoutEffect } from 'react';
 import { useEffect } from 'react';
 
 
 const AppContext = React.createContext();
 
-const API =
+const API = "https://69e66d91ce4e908a155f8215.mockapi.io/services";
 const initialState = {
   name: "",
-  Image: null,
+  Image:null,
+  services: [],
 };
 
 const AppProvider = ({ children }) => {
@@ -39,18 +39,22 @@ const AppProvider = ({ children }) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
+
+      console.log("API Data:",data);
         dispatch({
           type: "GET_SERVICES",
-          payload: data})
-        }
-      
+          payload: data, // Assuming the API response has a 'products' field
+        });
+    }
        catch (error) {
       console.log(error);
     }
 };
+    
+    
 
   //call the api
- useLayoutEffect(() => {
+ useEffect(() => {
    getServices(API);
  
 
