@@ -2,6 +2,8 @@ import React, { useContext, useReducer } from 'react';
 import { reducer } from './reducer';
 import { useEffect } from 'react';
 
+import { GlobalStyle } from './components/GlobalStyle';
+
 
 const AppContext = React.createContext();
 

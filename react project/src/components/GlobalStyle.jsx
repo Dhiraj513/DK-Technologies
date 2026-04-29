@@ -14,6 +14,17 @@ html {
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 0.8rem;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
 h1{
     font-size: 6rem;
     font-weight: 900;

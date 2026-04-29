@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import HeroSection from "./components/HeroSection";
 import { useGlobalContext } from "./context";
+import Services from "./Services";
 
 const Home = () => {
   const { name, Image, updateHomepage } = useGlobalContext();
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <>
       <HeroSection name={name} Image={Image} />
+      <Services />
     </>
   );
 };
