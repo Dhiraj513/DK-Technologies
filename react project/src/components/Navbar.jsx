@@ -38,10 +38,7 @@ const Nav = styled.nav`
     }
   }
 
-  .mobile-navbar-btn [name="close-outline"]{
-    display: none;
-
-  }
+  
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .mobile-navbar-btn{
@@ -93,9 +90,7 @@ const Nav = styled.nav`
       z-index: 999;
     }
 
-    .active .navbar-list{
-      display: inline-block;
-    }
+    
     .active .navbar-list{
       visibility: visible;
       opacity: 1;
@@ -127,14 +122,18 @@ const Navbar = () => {
         </ul>
         { /*navbar menu icon for mobile view*/ }
         <div className="mobile-navbar-btn">
-          <CgMenu name="menu-outline" className="mobile-nav-icon" 
-            onClick={() => setOpenMenu(true)}
-          />
-          
-          <CgCloseR  name="close-outline" className="mobile-nav-icon"
-            onClick={() => setOpenMenu(false)}
-          />
-        </div>
+  {openMenu ? (
+    <CgCloseR
+      className="mobile-nav-icon"
+      onClick={() => setOpenMenu(false)}
+    />
+  ) : (
+    <CgMenu
+      className="mobile-nav-icon"
+      onClick={() => setOpenMenu(true)}
+    />
+  )}
+</div>
       </div>
     </Nav>
   );

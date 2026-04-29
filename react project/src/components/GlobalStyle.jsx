@@ -101,6 +101,14 @@ li{
     font-size: 1.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
-
 };
-`
+
+    //998px
+    @media (max-width:${({theme})=>theme.media.mobile}){
+        .container{
+            padding: 0 3.2rem;
+        }
+    }
+
+
+`;
