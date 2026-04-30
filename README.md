@@ -100,7 +100,8 @@ Deployment can be done using:
 
 ## 📸 Screenshots
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/73299fad-39c7-415f-bbf2-762e93de9acb" />
+<img width="1920" height="859" alt="Screenshot (147)" src="https://github.com/user-attachments/assets/ebb8ac9f-38e6-4084-aa8a-ccd8e3807d93" />
+
 
 
 ---
