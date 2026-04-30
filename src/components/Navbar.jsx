@@ -42,6 +42,9 @@ const Nav = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .mobile-navbar-btn{
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
       display: inline-block;
       z-index: 999;
       border: ${({ theme }) => theme.colors.text};
@@ -54,7 +57,7 @@ const Nav = styled.nav`
     .navbar-list {
       width: 100vw;
       height: 100vh;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       background-color: #fff;
@@ -66,6 +69,8 @@ const Nav = styled.nav`
       gap: 3rem;
       transition: transform 0.3s ease;
       text-align: center;
+      z-index: 999;
+    }
 
       li{
       &.navbar-link{
@@ -80,16 +85,7 @@ const Nav = styled.nav`
       }
     }
     }
-    .active.mobile-nav-icon{
-      display: none;
-      font-size: 4.2rem;
-      position: absolute;
-      top:3%;
-      right: 10%;
-      color: ${({ theme }) => theme.colors.text};
-      z-index: 999;
-    }
-
+    
     
     .active .navbar-list{
       visibility: visible;
