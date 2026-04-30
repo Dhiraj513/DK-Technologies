@@ -21,9 +21,13 @@ const Services = () => {
     <h3>{title}</h3>
     <p>{description}</p>
 
-    <NavLink to="/services">
-      <Button className="read-btn">Read More</Button>
-    </NavLink>
+    <a 
+  href="https://miraai.tech/service" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <Button className="read-btn">Read More</Button>
+</a>
   </div>
 </div>
         );
